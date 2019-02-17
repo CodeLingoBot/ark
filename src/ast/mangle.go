@@ -22,7 +22,7 @@ func TypeReferencesMangledName(mangleType MangleType, typs []*TypeReference, gco
 	return res
 }
 
-// easier than making a method for all types
+// TypeReferenceMangledName: easier than making a method for all types
 func TypeReferenceMangledName(mangleType MangleType, typ *TypeReference, gcon *GenericContext) string {
 	switch mangleType {
 	case MANGLE_ARK_UNSTABLE:

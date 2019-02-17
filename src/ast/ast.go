@@ -219,7 +219,7 @@ func (_ Block) NodeName() string {
 	return "block"
 }
 
-// nil if no nodes
+// LastNode: nil if no nodes
 func (v Block) LastNode() Node {
 	if len(v.Nodes) == 0 {
 		return nil

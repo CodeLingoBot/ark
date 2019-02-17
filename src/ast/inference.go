@@ -1382,17 +1382,17 @@ func (v *Inferrer) Finalize() {
 
 // SetType Methods
 
-// UnaryExpr
+// SetType: UnaryExpr
 func (v *UnaryExpr) SetType(t *TypeReference) {
 	v.Type = t
 }
 
-// BinaryExpr
+// SetType: BinaryExpr
 func (v *BinaryExpr) SetType(t *TypeReference) {
 	v.Type = t
 }
 
-// NumericLiteral
+// SetType: NumericLiteral
 func (v *NumericLiteral) SetType(t *TypeReference) {
 	var actual Type
 	if t != nil {
@@ -1421,7 +1421,7 @@ func (v *NumericLiteral) SetType(t *TypeReference) {
 	}
 }
 
-// ArrayLiteral
+// SetType: ArrayLiteral
 func (v *CompositeLiteral) SetType(t *TypeReference) {
 	if t == nil {
 		return
@@ -1435,14 +1435,14 @@ func (v *CompositeLiteral) SetType(t *TypeReference) {
 	}
 }
 
-// StringLiteral
+// SetType: StringLiteral
 func (v *StringLiteral) SetType(t *TypeReference) {
 	if t.BaseType.ActualType() == stringType {
 		v.Type = t
 	} // TODO arrays
 }
 
-// TupleLiteral
+// SetType: TupleLiteral
 func (v *TupleLiteral) SetType(t *TypeReference) {
 	if t == nil {
 		return
@@ -1454,7 +1454,7 @@ func (v *TupleLiteral) SetType(t *TypeReference) {
 	}
 }
 
-// Variable
+// SetType: Variable
 func (v *Variable) SetType(t *TypeReference) {
 	if v.Type == nil {
 		v.Type = t
@@ -1530,7 +1530,7 @@ func (v *EnumPatternExpr) SetType(t *TypeReference) {
 	}
 }
 
-// Noops
+// SetType: Noops
 func (_ ArrayAccessExpr) SetType(t *TypeReference)    {}
 func (_ ArrayLenExpr) SetType(t *TypeReference)       {}
 func (_ BoolLiteral) SetType(t *TypeReference)        {}

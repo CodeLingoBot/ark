@@ -1178,7 +1178,7 @@ func NewGenericContextFromTypeReference(typref *TypeReference) *GenericContext {
 	return NewGenericContext(getTypeGenericParameters(typref.BaseType), typref.GenericArguments)
 }
 
-// Like Get, but only gets value where key is substitution type. Returns nil if no value for key.
+// GetSubstitutionType: Like Get, but only gets value where key is substitution type. Returns nil if no value for key.
 func (v *GenericContext) GetSubstitutionType(t *SubstitutionType) *TypeReference {
 	if x, ok := v.submap[t]; ok {
 		return x
@@ -1188,7 +1188,7 @@ func (v *GenericContext) GetSubstitutionType(t *SubstitutionType) *TypeReference
 	return nil
 }
 
-// If the key is a substitution type and is not found in this generic instance, Get() checks GenericContext.Outer if not nil.
+// Get: If the key is a substitution type and is not found in this generic instance, Get() checks GenericContext.Outer if not nil.
 func (v *GenericContext) Get(t *TypeReference) *TypeReference {
 	if v == nil {
 		panic("called Get() on nil GenericContext")

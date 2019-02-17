@@ -5,7 +5,7 @@ import (
 	"github.com/ark-lang/ark/src/util"
 )
 
-// escape for debug output
+// EscapeString: escape for debug output
 // only things that can't be displayed need to be escaped
 func EscapeString(s string) string {
 	out := make([]rune, 0)
